@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Scientific">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            style="@style/HeaderText"
+            android:layout_marginLeft="70dp"
+            android:layout_marginVertical="16dp"
+            android:text="Scientifc Calculator"
+            android:paddingBottom="50dp"
+
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="196dp">
+
+            <TextView
+                android:id="@+id/input"
+                style="@style/HeaderText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:text="Enter numbers to be calculated"
+                android:textSize="15sp"
+
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginVertical="50dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonsin"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:onClick="inputsin"
+                    android:text="Sin"
+                    android:textAlignment="center"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/buttoncos"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:onClick="inputcos"
+                    android:text="Cos"
+                    android:textAlignment="center"
+                    android:textSize="15dp" />
+
+                <Button
+                    android:id="@+id/buttontan"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:onClick="inputtan"
+                    android:text="tan"
+                    android:textAlignment="center"
+                    android:textSize="15dp" />
+
+                <Button
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="inputln"
+                    android:text="ln"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginVertical="100dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonsinh"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:onClick="inputsinh"
+                    android:text="Sinh"
+                    android:textAlignment="center"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/buttoncosh"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:onClick="inputcosh"
+                    android:text="Cosh"
+                    android:textAlignment="center"
+                    android:textSize="15dp" />
+
+                <Button
+                    android:id="@+id/buttontanh"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:onClick="inputtanh"
+                    android:text="tanh"
+                    android:textAlignment="center"
+                    android:textSize="15dp" />
+
+                <Button
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="inputsqrt"
+                    android:text="Sqrt"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginVertical="100dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonsinh"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:onClick="inputsinh"
+                    android:text="Sinh"
+                    android:textAlignment="center"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/buttoncosh"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:onClick="inputcosh"
+                    android:text="Cosh"
+                    android:textAlignment="center"
+                    android:textSize="15dp" />
+
+                <Button
+                    android:id="@+id/buttontanh"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:onClick="inputtanh"
+                    android:text="tanh"
+                    android:textAlignment="center"
+                    android:textSize="15dp" />
+
+                <Button
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="inputsqrt"
+                    android:text="Sqrt"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginVertical="150dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonfloor"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:onClick="inputfloor"
+                    android:text="floor"
+                    android:textAlignment="center"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/buttonceil"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:onClick="inputceil"
+                    android:text="ceil"
+                    android:textAlignment="center"
+                    android:textSize="15dp" />
+
+                <Button
+                    android:id="@+id/buttonfact"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:onClick="inputfact"
+                    android:text="!"
+                    android:textAlignment="center"
+                    android:textSize="15dp" />
+
+                <Button
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="inputlog"
+                    android:text="log"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            >
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:layout_weight="3"
+                style="?android:attr/borderlessButtonStyle"
+                android:onClick="input1"/>
+
+            <Button
+                android:id="@+id/button2"
+                android:textSize="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_weight="3"
+                android:textAlignment="center"
+                android:onClick="input2"
+                />
+
+            <Button
+                android:id="@+id/button3"
+                android:textSize="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAlignment="center"
+                android:layout_weight="3"
+                android:onClick="input3"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_weight="1"
+                android:text="/"
+                style="?android:attr/borderlessButtonStyle"
+                android:onClick="inputdiv"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp">
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:layout_weight="3"
+                android:onClick="input4"
+                style="?android:attr/borderlessButtonStyle"
+                />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="wrap_content"
+                android:textSize="15sp"
+                android:layout_height="wrap_content"
+                android:text="5"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_weight="3"
+                android:textAlignment="center"
+                android:onClick="input5"
+                />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="wrap_content"
+                android:textSize="15sp"
+                android:layout_height="wrap_content"
+                style="?android:attr/borderlessButtonStyle"
+                android:text="6"
+                android:onClick="input6"
+                android:textAlignment="center"
+                android:layout_weight="3"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_weight="1"
+                android:onClick="inputprod"
+                android:text="*"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp">
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="wrap_content"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_height="wrap_content"
+                android:text="7"
+                android:textSize="15sp"
+                android:onClick="input7"
+                android:textAlignment="center"
+                android:layout_weight="3"/>
+
+            <Button
+                android:id="@+id/button8"
+                android:textSize="15sp"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8"
+                android:layout_weight="3"
+                android:onClick="input8"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="?android:attr/borderlessButtonStyle"
+                android:text="9"
+                android:onClick="input9"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:layout_weight="3"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="15sp"
+                android:text="+"
+                style="?android:attr/borderlessButtonStyle"
+                android:onClick="inputplus"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            >
+
+            <Button
+                android:id="@+id/buttondecimal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="."
+                android:textSize="25sp"
+                style="?android:attr/borderlessButtonStyle"
+                android:onClick="inputdec"
+                android:textAlignment="center"
+                android:layout_weight="3"/>
+
+            <Button
+                android:id="@+id/button0"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:onClick="input0"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_weight="3"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/buttonequal"
+                android:textSize="25sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="="
+                style="?android:attr/borderlessButtonStyle"
+                android:onClick="eval"
+                android:textAlignment="center"
+                android:layout_weight="3"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="15sp"
+                android:onClick="inputsub"
+                android:text="-"
+                style="?android:attr/borderlessButtonStyle"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            >
+
+            <Button
+                android:id="@+id/buttonbracketopen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="("
+                android:textSize="15sp"
+                style="?android:attr/borderlessButtonStyle"
+                android:onClick="inputbracketopen"
+                android:textAlignment="center"
+                android:layout_weight="3"/>
+
+            <Button
+                android:id="@+id/buttonbracketclose"
+                android:layout_width="wrap_content"
+                android:textSize="15sp"
+                android:paddingLeft="30dp"
+                android:layout_height="wrap_content"
+                android:text=")"
+                android:onClick="inputbracketclose"
+                android:layout_weight="3"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/buttonexpo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="^"
+                android:textSize="15sp"
+                android:onClick="inputexpo"
+                android:paddingLeft="40dp"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAlignment="center"
+                android:layout_weight="3"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:id="@+id/delete"
+                android:textSize="25sp"
+                android:onClick="del"
+                android:layout_weight="1"
+                style="?android:attr/borderlessButtonStyle"
+
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
