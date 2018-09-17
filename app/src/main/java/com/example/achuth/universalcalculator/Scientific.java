@@ -214,11 +214,21 @@ public class Scientific extends AppCompatActivity {
     public void inputbracketclose(View view) {
         onscreen+=")";
         display();
+        working W=new working();
        // System.out.println("length of exp is " + onscreen.length());
        for(int m=0;m<=onscreen.length();m++)
         {
            if(onscreen.charAt(m)==' ')
                 continue;
+           if(onscreen.charAt(m)=='('&&onscreen.charAt(m+1)==')')
+           {
+               TextView text=(TextView)findViewById(R.id.input);
+               input=" ";
+               onscreen=" ";
+               //Log.e("LOG tag", input);
+               text.setText("Error");
+               break;
+           }
             //System.out.println("here m is  " + m);
             if(onscreen.charAt(m)=='l'&&(onscreen.charAt(m+1)=='n')&&(onscreen.charAt(m+2)=='('))
             {
@@ -231,11 +241,14 @@ public class Scientific extends AppCompatActivity {
                     temp.append(onscreen.charAt(++m));
                     //System.out.println("temp buffer is " + temp.toString());
                 }
-                double res=Double.parseDouble(temp.toString());
+                //double res=Double.parseDouble(temp.toString());
+                double res=W.driver(temp.toString());
                 double rest;
                 if(res<0)
                 {
                     TextView text=(TextView)findViewById(R.id.input);
+                    input=" ";
+                    onscreen=" ";
                     text.setText("Error");
                     break;
                 }
@@ -261,7 +274,8 @@ public class Scientific extends AppCompatActivity {
                     temp.append(onscreen.charAt(++m));
                     //System.out.println("temp buffer is " + temp.toString());
                 }
-                double res=Double.parseDouble(temp.toString());
+                //double res=Double.parseDouble(temp.toString());
+                double res=W.driver(temp.toString());
                 double rest=Math.toRadians(res);
                 double eq=Math.sin(rest);
                 //System.out.println("Result of mathematical expression " + rest);
@@ -285,7 +299,8 @@ public class Scientific extends AppCompatActivity {
                     temp.append(onscreen.charAt(++m));
                     //System.out.println("temp buffer is " + temp.toString());
                 }
-                double res=Double.parseDouble(temp.toString());
+                //double res=Double.parseDouble(temp.toString());
+                double res=W.driver(temp.toString());
                 double rest=Math.toRadians(res);
                 double eq=Math.cos(rest);
                 //System.out.println("Result of mathematical expression " + rest);
@@ -306,7 +321,8 @@ public class Scientific extends AppCompatActivity {
                 {
                     temp.append(onscreen.charAt(++m));
                 }
-                double res=Double.parseDouble(temp.toString());
+                //double res=Double.parseDouble(temp.toString());
+                double res=W.driver(temp.toString());
                 double rest=Math.toRadians(res);
                 double eq=Math.tan(rest);
                 input=input.substring(0,input.length()-temp.length());
@@ -322,7 +338,8 @@ public class Scientific extends AppCompatActivity {
                 {
                     temp.append(onscreen.charAt(++m));
                 }
-                double res=Double.parseDouble(temp.toString());
+               // double res=Double.parseDouble(temp.toString());
+                double res=W.driver(temp.toString());
                 double rest=Math.toRadians(res);
                 double eq=Math.sinh(rest);
                 input=input.substring(0,input.length()-temp.length());
@@ -338,7 +355,8 @@ public class Scientific extends AppCompatActivity {
                 {
                     temp.append(onscreen.charAt(++m));
                 }
-                double res=Double.parseDouble(temp.toString());
+                //double res=Double.parseDouble(temp.toString());
+                double res=W.driver(temp.toString());
                 double rest=Math.toRadians(res);
                 double eq=Math.cosh(rest);
                 input=input.substring(0,input.length()-temp.length());
@@ -354,7 +372,8 @@ public class Scientific extends AppCompatActivity {
                 {
                     temp.append(onscreen.charAt(++m));
                 }
-                double res=Double.parseDouble(temp.toString());
+                //double res=Double.parseDouble(temp.toString());
+                double res=W.driver(temp.toString());
                 double rest=Math.toRadians(res);
                 double eq=Math.tanh(rest);
                 input=input.substring(0,input.length()-temp.length());
@@ -370,7 +389,8 @@ public class Scientific extends AppCompatActivity {
                 {
                     temp.append(onscreen.charAt(++m));
                 }
-                double res=Double.parseDouble(temp.toString());
+                //double res=Double.parseDouble(temp.toString());
+                double res=W.driver(temp.toString());
                 double rest=Math.sqrt(res);
                 input=input.substring(0,input.length()-temp.length());
                 input+=rest;
@@ -385,10 +405,13 @@ public class Scientific extends AppCompatActivity {
                 {
                     temp.append(onscreen.charAt(++m));
                 }
-                double res=Double.parseDouble(temp.toString());
+                //double res=Double.parseDouble(temp.toString());
+                double res=W.driver(temp.toString());
                 if(res<0)
                 {
                     TextView text=(TextView)findViewById(R.id.input);
+                    input=" ";
+                    onscreen=" ";
                     text.setText("Error");
                     break;
                 }
@@ -406,10 +429,13 @@ public class Scientific extends AppCompatActivity {
                 {
                     temp.append(onscreen.charAt(++m));
                 }
-                double res=Double.parseDouble(temp.toString());
+                //double res=Double.parseDouble(temp.toString());
+                double res=W.driver(temp.toString());
                 if(res<0)
                 {
                     TextView text=(TextView)findViewById(R.id.input);
+                    input=" ";
+                    onscreen=" ";
                     text.setText("Error");
                     break;
                 }
@@ -427,10 +453,13 @@ public class Scientific extends AppCompatActivity {
                 {
                     temp.append(onscreen.charAt(++m));
                 }
-                double res=Double.parseDouble(temp.toString());
+                //double res=Double.parseDouble(temp.toString());
+                double res=W.driver(temp.toString());
                 if(res<0)
                 {
                    TextView text=(TextView)findViewById(R.id.input);
+                    input=" ";
+                    onscreen=" ";
                     text.setText("Error");
                     break;
                 }
@@ -440,7 +469,17 @@ public class Scientific extends AppCompatActivity {
                 onscreen=input;
                 break;
             }
+           else if(onscreen.charAt(m)=='(' )
+           {
+                if (onscreen.charAt(m + 1) != 'l' || onscreen.charAt(m - 1) != 's' || onscreen.charAt(m - 1) != 'c' || onscreen.charAt(m - 1) != 't' || onscreen.charAt(m - 1) != 'f') {
+                    input += ")";
+                    onscreen = input;
+                    display();
+                    break;
+                }
+            }
         }
+
     }
 
     public void inputexpo(View view) {
@@ -587,6 +626,7 @@ public class Scientific extends AppCompatActivity {
                     {
                         t.setText("Error");
                         input=" ";
+                        onscreen=" ";
                         break;
                     }
                     while (!operands.empty() && hasPrecedence(s.charAt(i), operands.peek()))

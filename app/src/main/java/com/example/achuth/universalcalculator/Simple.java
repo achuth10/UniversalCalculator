@@ -214,6 +214,22 @@ public class Simple extends AppCompatActivity {
         input+=")";
         onscreen=input;
         display();
+        for(int m=0;m<=onscreen.length();m++)
+        {
+            if(onscreen.charAt(m)==' ')
+                continue;
+            else if(onscreen.charAt(m)=='('&&onscreen.charAt(m+1)==')')
+            {
+                TextView text=(TextView)findViewById(R.id.input);
+                input=" ";
+                onscreen=" ";
+                //Log.e("LOG tag", input);
+                text.setText("Error");
+                break;
+            }
+            else if (onscreen.charAt(m)=='('&&onscreen.charAt(m+1)!=')')
+                break;
+        }
 
     }
 
@@ -222,6 +238,8 @@ public class Simple extends AppCompatActivity {
         onscreen=input;
         display();
     }
+
+
 
 
     class working{
