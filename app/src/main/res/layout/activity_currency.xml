@@ -10,29 +10,63 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:id="@+id/date"
+            android:layout_marginBottom="20dp"
+            android:text=" "/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="From"
+            android:textSize="20sp"
+            android:layout_marginBottom="16dp"
+            />
 
       <Spinner
             android:id="@+id/spinner1"
+          android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:drawable/btn_dropdown"
             android:spinnerMode="dropdown"
-          android:visibility="gone"/>
+          />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:text="switch"
+            android:textSize="20dp"
+            android:onClick="switchcurr"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="To"
+            android:layout_marginBottom="16dp"
+            android:textSize="20sp"/>
         <Spinner
             android:id="@+id/spinner2"
+            android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:drawable/btn_dropdown"
             android:spinnerMode="dropdown"
-            android:visibility="gone"/>
-
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/edit"
+            android:hint="Enter amount to be converted"/>
         <Button
             android:id="@+id/queryButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             style="@style/Base.Widget.AppCompat.Button.Borderless"
-            android:text="Search"
+            android:text="Convert"
             android:onClick="execute"
             />
 
@@ -47,14 +81,14 @@
                 android:indeterminate="true"
                 android:layout_centerHorizontal="true"
                 android:visibility="gone" />
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:id="@+id/responseView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </ScrollView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/result"
+                android:textSize="40dp"
+                android:layout_centerHorizontal="true"
+                />
         </RelativeLayout>
 
     </LinearLayout>
