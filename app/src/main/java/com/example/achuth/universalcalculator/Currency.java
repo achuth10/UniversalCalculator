@@ -1,6 +1,6 @@
 package com.example.achuth.universalcalculator;
 
-import android.graphics.Color;
+
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import java.io.BufferedReader;
@@ -8,13 +8,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
