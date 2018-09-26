@@ -14,17 +14,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void gottosimple(View view) {
-        Intent i=new Intent(this,Simple.class);
-       /// overridePendingTransition(R.anim.animation_enter, R.anim.animation_leave);
-        startActivity(i);
-        //finish();
-
-    }
-    public void gottoscientific(View view) {
-        Intent i=new Intent(this,Scientific.class);
+        Intent i = new Intent(this, Simple.class);
         /// overridePendingTransition(R.anim.animation_enter, R.anim.animation_leave);
         startActivity(i);
         //finish();
 
+    }
+
+    public void gottoscientific(View view) {
+        Intent i = new Intent(this, Scientific.class);
+        /// overridePendingTransition(R.anim.animation_enter, R.anim.animation_leave);
+        startActivity(i);
+        //finish();
+
+    }
+
+    public void gotocurrency(View view) {
+        Intent i = new Intent(this, Currency.class);
+            startActivity(i);
     }
 }

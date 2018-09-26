@@ -20,13 +20,10 @@ public class Scientific extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scientific);
-        Button delete=(Button)findViewById(R.id.delete);
+        Button delete= findViewById(R.id.delete);
         delete.setOnLongClickListener(new OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                // TODO Auto-generated method stub
-//                Toast.makeText(getApplicationContext(),
-//                        "You have pressed it long :)", Toast.LENGTH_LONG).show();
                 input=" ";
                 onscreen=input;
                 display();
@@ -158,20 +155,18 @@ public class Scientific extends AppCompatActivity {
     }
 
     public void display() {
-        TextView T = (TextView) findViewById(R.id.input);
+        TextView T = findViewById(R.id.input);
         T.setText(" " + onscreen);
-        //T.setText(" " + input);
     }
     public void display(String s) {
-        TextView T = (TextView) findViewById(R.id.input);
+        TextView T = findViewById(R.id.input);
         T.setText(s);
     }
 
 
     public void eval(View view) {
 
-        TextView T = (TextView) findViewById(R.id.input);
-        //System.out.println("new input " + input);
+        TextView T = findViewById(R.id.input);
 
         if(input.length()==1)
         {
@@ -189,18 +184,10 @@ public class Scientific extends AppCompatActivity {
         {
 
             working W=new working();
-            // double result=W.driver(input);
-
-
-            //changed code
             double result=W.driver(input);
-            // System.out.println(result);
             T.setText(" "+ result);
-            //here is what changed
             input=" " +result;
             onscreen=input;
-
-            //input = " ";
         }
 
     }
@@ -215,101 +202,71 @@ public class Scientific extends AppCompatActivity {
         onscreen+=")";
         display();
         working W=new working();
-       // System.out.println("length of exp is " + onscreen.length());
        for(int m=0;m<=onscreen.length();m++)
         {
            if(onscreen.charAt(m)==' ')
                 continue;
            if(onscreen.charAt(m)=='('&&onscreen.charAt(m+1)==')')
            {
-               TextView text=(TextView)findViewById(R.id.input);
+               TextView text= findViewById(R.id.input);
                input=" ";
                onscreen=" ";
-               //Log.e("LOG tag", input);
                text.setText("Error");
                break;
            }
-            //System.out.println("here m is  " + m);
             if(onscreen.charAt(m)=='l'&&(onscreen.charAt(m+1)=='n')&&(onscreen.charAt(m+2)=='('))
             {
-               //System.out.println("entered if at m = "+ m);
                 m+=2;
                 StringBuffer temp=new StringBuffer();
                 while(onscreen.charAt(m+1)!=')')
                 {
-                    //System.out.println("inside while m is  "+ m  );
                     temp.append(onscreen.charAt(++m));
-                    //System.out.println("temp buffer is " + temp.toString());
                 }
-                //double res=Double.parseDouble(temp.toString());
                 double res=W.driver(temp.toString());
                 double rest;
                 if(res<0)
                 {
-                    TextView text=(TextView)findViewById(R.id.input);
+                    TextView text= findViewById(R.id.input);
                     input=" ";
                     onscreen=" ";
                     text.setText("Error");
                     break;
                 }
                 rest=Math.log(res);
-                //System.out.println("Result of mathematical expression " + rest);
-                //System.out.println("input  is "+ input);
-                //System.out.println("input before "+ input);
                 input=input.substring(0,input.length()-temp.length());
-                //System.out.println("input after "+ input);
                 input+=rest;
-                //System.out.println("Input after after is " + input);
                 onscreen=input;
                 break;
             }
             if(onscreen.charAt(m)=='s'&&(onscreen.charAt(m+1)=='i')&&(onscreen.charAt(m+2)=='n')&&(onscreen.charAt(m+3)=='('))
             {
-                //System.out.println("entered if at m = "+ m);
                 m+=3;
                 StringBuffer temp=new StringBuffer();
                 while(onscreen.charAt(m+1)!=')')
                 {
-                    //System.out.println("inside while m is  "+ m  );
                     temp.append(onscreen.charAt(++m));
-                    //System.out.println("temp buffer is " + temp.toString());
                 }
-                //double res=Double.parseDouble(temp.toString());
                 double res=W.driver(temp.toString());
                 double rest=Math.toRadians(res);
                 double eq=Math.sin(rest);
-                //System.out.println("Result of mathematical expression " + rest);
-                //System.out.println("input  is "+ input);
-                //System.out.println("input before "+ input);
                 input=input.substring(0,input.length()-temp.length());
-                //System.out.println("input after "+ input);
                 input+=eq;
-                //System.out.println("Input after after is " + input);
                 onscreen=input;
                 break;
             }
             if(onscreen.charAt(m)=='c'&&(onscreen.charAt(m+1)=='o')&&(onscreen.charAt(m+2)=='s')&&(onscreen.charAt(m+3)=='('))
             {
-                //System.out.println("entered if at m = "+ m);
                 m+=3;
                 StringBuffer temp=new StringBuffer();
                 while(onscreen.charAt(m+1)!=')')
                 {
-                    //System.out.println("inside while m is  "+ m  );
                     temp.append(onscreen.charAt(++m));
-                    //System.out.println("temp buffer is " + temp.toString());
                 }
-                //double res=Double.parseDouble(temp.toString());
                 double res=W.driver(temp.toString());
                 double rest=Math.toRadians(res);
                 double eq=Math.cos(rest);
-                //System.out.println("Result of mathematical expression " + rest);
-                //System.out.println("input  is "+ input);
-                //System.out.println("input before "+ input);
                 input=input.substring(0,input.length()-temp.length());
-                //System.out.println("input after "+ input);
                 input+=eq;
-                //System.out.println("Input after after is " + input);
                 onscreen=input;
                 break;
             }
@@ -321,7 +278,6 @@ public class Scientific extends AppCompatActivity {
                 {
                     temp.append(onscreen.charAt(++m));
                 }
-                //double res=Double.parseDouble(temp.toString());
                 double res=W.driver(temp.toString());
                 double rest=Math.toRadians(res);
                 double eq=Math.tan(rest);
@@ -338,7 +294,6 @@ public class Scientific extends AppCompatActivity {
                 {
                     temp.append(onscreen.charAt(++m));
                 }
-               // double res=Double.parseDouble(temp.toString());
                 double res=W.driver(temp.toString());
                 double rest=Math.toRadians(res);
                 double eq=Math.sinh(rest);
@@ -355,7 +310,6 @@ public class Scientific extends AppCompatActivity {
                 {
                     temp.append(onscreen.charAt(++m));
                 }
-                //double res=Double.parseDouble(temp.toString());
                 double res=W.driver(temp.toString());
                 double rest=Math.toRadians(res);
                 double eq=Math.cosh(rest);
@@ -372,7 +326,6 @@ public class Scientific extends AppCompatActivity {
                 {
                     temp.append(onscreen.charAt(++m));
                 }
-                //double res=Double.parseDouble(temp.toString());
                 double res=W.driver(temp.toString());
                 double rest=Math.toRadians(res);
                 double eq=Math.tanh(rest);
@@ -389,7 +342,6 @@ public class Scientific extends AppCompatActivity {
                 {
                     temp.append(onscreen.charAt(++m));
                 }
-                //double res=Double.parseDouble(temp.toString());
                 double res=W.driver(temp.toString());
                 double rest=Math.sqrt(res);
                 input=input.substring(0,input.length()-temp.length());
@@ -405,11 +357,10 @@ public class Scientific extends AppCompatActivity {
                 {
                     temp.append(onscreen.charAt(++m));
                 }
-                //double res=Double.parseDouble(temp.toString());
                 double res=W.driver(temp.toString());
                 if(res<0)
                 {
-                    TextView text=(TextView)findViewById(R.id.input);
+                    TextView text= findViewById(R.id.input);
                     input=" ";
                     onscreen=" ";
                     text.setText("Error");
@@ -429,11 +380,10 @@ public class Scientific extends AppCompatActivity {
                 {
                     temp.append(onscreen.charAt(++m));
                 }
-                //double res=Double.parseDouble(temp.toString());
                 double res=W.driver(temp.toString());
                 if(res<0)
                 {
-                    TextView text=(TextView)findViewById(R.id.input);
+                    TextView text= findViewById(R.id.input);
                     input=" ";
                     onscreen=" ";
                     text.setText("Error");
@@ -453,11 +403,10 @@ public class Scientific extends AppCompatActivity {
                 {
                     temp.append(onscreen.charAt(++m));
                 }
-                //double res=Double.parseDouble(temp.toString());
                 double res=W.driver(temp.toString());
                 if(res<0)
                 {
-                   TextView text=(TextView)findViewById(R.id.input);
+                   TextView text= findViewById(R.id.input);
                     input=" ";
                     onscreen=" ";
                     text.setText("Error");
@@ -477,6 +426,12 @@ public class Scientific extends AppCompatActivity {
                     display();
                     break;
                 }
+                }
+            else if(onscreen.charAt(m)==')' && onscreen.charAt(m-1)!='(' )
+            {
+                TextView text= findViewById(R.id.input);
+                text.setText("Error");
+                break;
             }
         }
 
@@ -491,8 +446,6 @@ public class Scientific extends AppCompatActivity {
     public void inputln(View view) {
 
         onscreen+="ln(";
-        //System.out.println("input is " + input);
-        //System.out.println("Onscreen is "+ onscreen);
         display();
     }
 
@@ -559,22 +512,15 @@ public class Scientific extends AppCompatActivity {
                 return true;
             else if(c=='-')
                 return true;
-            else if(c=='^')
-                return true;
-            else
-                return false;
+            else return c == '^';
         }
 
         public  boolean hasPrecedence(char op1, char op2) {
             if (op2 == '(' || op2 == ')')
                 return false;
-            if ((op1 == '*' || op1 == '/' || op1=='^') && (op2 == '+' || op2 == '-'))
-                return false;
-            else
-                return true;
+            return (op1 != '*' && op1 != '/' && op1 != '^') || (op2 != '+' && op2 != '-');
         }
         public  double applyOp(char op, double b, double  a) {
-            //System.out.println("entered ops metho");
             switch (op) {
                 case '+':
                     return a + b;
@@ -595,13 +541,11 @@ public class Scientific extends AppCompatActivity {
         public Double driver(String s)
         {
             s="("+s+"+0)";
-            //System.out.println("Expression length and exp is " +s.length() + s);
             Stack<Double> numbers=new Stack<Double>();
             Stack<Character> operands=new Stack<Character>();
 
             for(int i=0;i<s.length()-1;i++)
             {
-                //System.out.println("Loop begining " + i );
 
                 if(s.charAt(i)==' ')
                     continue;
@@ -610,18 +554,14 @@ public class Scientific extends AppCompatActivity {
                     StringBuffer temp = new StringBuffer();
                     while(i<s.length() && Character.isDigit(s.charAt(i)))
                     {
-                        //System.out.println("While counter , i = "+i );
                         temp.append(s.charAt(i++));
                     }
                     numbers.push(Double.parseDouble(temp.toString()));
-                    //System.out.println("value of i after number pushing " +i);
-                    //System.out.println(numbers.peek());
                 }
 
                 if(isOperand(s.charAt(i)))
                 {
-                    //System.out.println("Entered operand test case");
-                    TextView t=(TextView)findViewById(R.id.input);
+                    TextView t= findViewById(R.id.input);
                     if(isOperand(s.charAt(i+1)))
                     {
                         t.setText("Error");
@@ -631,21 +571,14 @@ public class Scientific extends AppCompatActivity {
                     }
                     while (!operands.empty() && hasPrecedence(s.charAt(i), operands.peek()))
                     {
-                        //System.out.println("value of i inside operand pushing statement"+ i);
                         numbers.push(applyOp(operands.pop(), numbers.pop(), numbers.pop()));
                     }
                     operands.push(s.charAt(i));
-                    //System.out.println(operands.peek());
                 }
-                //System.out.println("value of i after operand pushing statement"+ i);
                 else if(s.charAt(i)=='(')
                 {
-                    //System.out.println("entered ( teest case ");
                     operands.push(s.charAt(i));
                 }
-                //System.out.println("before pooping th elements in stack ");
-                //for(int l=0;l<numbers.size();l++)
-                // System.out.println(numbers.get(l));
                 if (s.charAt(i)== ')') {
                     while (operands.peek() != '(')
                         numbers.push(applyOp(operands.pop(), numbers.pop(), numbers.pop()));
@@ -656,33 +589,24 @@ public class Scientific extends AppCompatActivity {
                 {
                     double newnum=0,k=1;double tempnum;
                     newnum=numbers.pop();
-                    //System.out.println("number already in stack" +newnum);
                     while(!isOperand(s.charAt(i+1)))
                     {
-                        //System.out.println("Entered the . checking, i =  "+ i );
                         StringBuffer temp = new StringBuffer();
                         temp.append(s.charAt(i+1));
 
                         tempnum=Double.parseDouble(temp.toString());
-                        //System.out.println("Temp num is " +tempnum);
-                        //System.out.println("10^(-k) "+ Math.pow(10, -k));
-                        //System.out.println("prod of tem num and exponential" +tempnum*(Math.pow(10, -k)));
                         newnum+=tempnum*(Math.pow(10, -k));
-                        //System.out.println("new number is " +newnum);
                         i++;
                         k++;
                     }
 
                     numbers.push(newnum);
-                    //System.out.println(numbers.peek());
                 }
 
 
             }
-            //System.out.println("reached end of parsing with operand " +  operands.peek());
             while (!operands.empty()&&numbers.size()>1)
             {
-                //System.out.println("inside operands ! empty");
 
                 numbers.push(applyOp(operands.pop(), numbers.pop(),numbers.pop()));
 

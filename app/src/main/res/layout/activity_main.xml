@@ -17,17 +17,24 @@
 
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Click here for simple  calculator"
         android:onClick="gottosimple"
         android:layout_weight="1"/>
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Click here for scientific  calculator"
         android:onClick="gottoscientific"
         android:layout_weight="1"
         />
+       <Button
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"
+           android:text="currency"
+           android:onClick="gotocurrency"
+           />
    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
