@@ -19,10 +19,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".Simple"
-            android:label="simple  calculator"
+            android:label="Simple calculator"
             />
-        <activity android:name=".Currency" />
-        <activity android:name=".Scientific"></activity>
+        <activity android:name=".Currency"
+            android:label="Currency Converter"
+            />
+        <activity android:name=".Scientific"
+            android:label="Scientific calculator"
+            />
     </application>
 
 </manifest>
