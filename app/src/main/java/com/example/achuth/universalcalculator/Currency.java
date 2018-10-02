@@ -1,6 +1,8 @@
 package com.example.achuth.universalcalculator;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import java.io.BufferedReader;
@@ -10,7 +12,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,6 +27,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import android.view.Menu;
 
 
 public class Currency extends AppCompatActivity implements OnItemSelectedListener {
@@ -37,6 +42,9 @@ public class Currency extends AppCompatActivity implements OnItemSelectedListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currency);
+
+
+
 
         responseView = findViewById(R.id.result);
         date= findViewById(R.id.date);
@@ -84,6 +92,31 @@ public class Currency extends AppCompatActivity implements OnItemSelectedListene
 
         spin1.setAdapter(currAdapter);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.help,menu);
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        if(item.getItemId()==R.id.settings)
+        {
+            Toast.makeText(this,"Settings",Toast.LENGTH_SHORT).show();
+        }
+        else if(item.getItemId()==R.id.help)
+        {
+            String url = "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html";
+            Intent i =new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        }
+        else
+        {
+            return super.onOptionsItemSelected(item);
+        }
+        return true;
     }
 
 
