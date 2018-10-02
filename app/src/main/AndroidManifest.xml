@@ -18,15 +18,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Simple"
-            android:label="Simple calculator"
-            />
-        <activity android:name=".Currency"
-            android:label="Currency Converter"
-            />
-        <activity android:name=".Scientific"
-            android:label="Scientific calculator"
-            />
+        <activity
+            android:name=".Simple"
+            android:label="Simple calculator" />
+        <activity
+            android:name=".Currency"
+            android:label="Currency Converter" />
+        <activity
+            android:name=".Scientific"
+            android:label="Scientific calculator" />
+        <activity android:name=".Unitconv"></activity>
     </application>
 
 </manifest>
