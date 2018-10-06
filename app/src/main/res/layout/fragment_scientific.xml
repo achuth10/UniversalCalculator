@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Scientific">
+    tools:context=".ScientificFragment">
 
+    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-
         <TextView
             style="@style/HeaderText"
             android:layout_marginLeft="70dp"
             android:layout_marginVertical="16dp"
             android:text="Scientifc Calculator"
             android:paddingBottom="50dp"
-
             />
 
         <RelativeLayout
@@ -52,7 +49,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:onClick="inputsin"
                     android:text="Sin"
                     android:textAlignment="center"
                     android:textSize="15sp" />
@@ -63,7 +59,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:onClick="inputcos"
                     android:text="Cos"
                     android:textAlignment="center"
                     android:textSize="15dp" />
@@ -74,73 +69,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:onClick="inputtan"
                     android:text="tan"
                     android:textAlignment="center"
                     android:textSize="15dp" />
 
                 <Button
+                    android:id="@+id/buttonln"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="inputln"
                     android:text="ln"
                     android:textSize="15sp" />
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="7dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginVertical="100dp"
-                android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/buttonsinh"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:onClick="inputsinh"
-                    android:text="Sinh"
-                    android:textAlignment="center"
-                    android:textSize="15sp" />
-
-                <Button
-                    android:id="@+id/buttoncosh"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:onClick="inputcosh"
-                    android:text="Cosh"
-                    android:textAlignment="center"
-                    android:textSize="15dp" />
-
-                <Button
-                    android:id="@+id/buttontanh"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:onClick="inputtanh"
-                    android:text="tanh"
-                    android:textAlignment="center"
-                    android:textSize="15dp" />
-
-                <Button
-                    style="?android:attr/borderlessButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="inputsqrt"
-                    android:text="Sqrt"
-                    android:textSize="15sp" />
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -157,7 +101,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:onClick="inputsinh"
                     android:text="Sinh"
                     android:textAlignment="center"
                     android:textSize="15sp" />
@@ -168,7 +111,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:onClick="inputcosh"
                     android:text="Cosh"
                     android:textAlignment="center"
                     android:textSize="15dp" />
@@ -179,17 +121,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:onClick="inputtanh"
                     android:text="tanh"
                     android:textAlignment="center"
                     android:textSize="15dp" />
 
                 <Button
+                    android:id="@+id/buttonsqrt"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="inputsqrt"
                     android:text="Sqrt"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -210,7 +151,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:onClick="inputfloor"
                     android:text="floor"
                     android:textAlignment="center"
                     android:textSize="15sp" />
@@ -221,7 +161,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:onClick="inputceil"
                     android:text="ceil"
                     android:textAlignment="center"
                     android:textSize="15dp" />
@@ -232,17 +171,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:onClick="inputfact"
                     android:text="!"
                     android:textAlignment="center"
                     android:textSize="15dp" />
 
                 <Button
+                    android:id="@+id/buttonlog"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:onClick="inputlog"
                     android:text="log"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -266,7 +204,7 @@
                 android:textAlignment="center"
                 android:layout_weight="3"
                 style="?android:attr/borderlessButtonStyle"
-                android:onClick="input1"/>
+                />
 
             <Button
                 android:id="@+id/button2"
@@ -277,7 +215,6 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_weight="3"
                 android:textAlignment="center"
-                android:onClick="input2"
                 />
 
             <Button
@@ -289,17 +226,16 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:textAlignment="center"
                 android:layout_weight="3"
-                android:onClick="input3"
                 />
+
             <Button
+                android:id="@+id/buttondiv"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
                 android:layout_weight="1"
                 android:text="/"
-                style="?android:attr/borderlessButtonStyle"
-                android:onClick="inputdiv"
-                />
+                android:textSize="15sp" />
 
         </LinearLayout>
         <LinearLayout
@@ -318,7 +254,6 @@
                 android:textSize="15sp"
                 android:textAlignment="center"
                 android:layout_weight="3"
-                android:onClick="input4"
                 style="?android:attr/borderlessButtonStyle"
                 />
 
@@ -331,7 +266,6 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_weight="3"
                 android:textAlignment="center"
-                android:onClick="input5"
                 />
 
             <Button
@@ -341,17 +275,17 @@
                 android:layout_height="wrap_content"
                 style="?android:attr/borderlessButtonStyle"
                 android:text="6"
-                android:onClick="input6"
                 android:textAlignment="center"
                 android:layout_weight="3"/>
+
             <Button
+                android:id="@+id/buttonmultiply"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
-                style="?android:attr/borderlessButtonStyle"
                 android:layout_weight="1"
-                android:onClick="inputprod"
-                android:text="*"/>
+                android:text="*"
+                android:textSize="15sp" />
 
         </LinearLayout>
         <LinearLayout
@@ -370,7 +304,6 @@
                 android:layout_height="wrap_content"
                 android:text="7"
                 android:textSize="15sp"
-                android:onClick="input7"
                 android:textAlignment="center"
                 android:layout_weight="3"/>
 
@@ -382,7 +315,6 @@
                 android:layout_height="wrap_content"
                 android:text="8"
                 android:layout_weight="3"
-                android:onClick="input8"
                 android:textAlignment="center" />
 
             <Button
@@ -391,18 +323,18 @@
                 android:layout_height="wrap_content"
                 style="?android:attr/borderlessButtonStyle"
                 android:text="9"
-                android:onClick="input9"
                 android:textSize="15sp"
                 android:textAlignment="center"
                 android:layout_weight="3"/>
+
             <Button
+                android:id="@+id/buttonadd"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="15sp"
                 android:text="+"
-                style="?android:attr/borderlessButtonStyle"
-                android:onClick="inputplus"/>
+                android:textSize="15sp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -420,7 +352,6 @@
                 android:text="."
                 android:textSize="25sp"
                 style="?android:attr/borderlessButtonStyle"
-                android:onClick="inputdec"
                 android:textAlignment="center"
                 android:layout_weight="3"/>
 
@@ -430,7 +361,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
-                android:onClick="input0"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_weight="3"
                 android:textAlignment="center" />
@@ -442,19 +372,18 @@
                 android:layout_height="wrap_content"
                 android:text="="
                 style="?android:attr/borderlessButtonStyle"
-                android:onClick="eval"
                 android:textAlignment="center"
                 android:layout_weight="3"/>
+
             <Button
+                android:id="@+id/buttonsub"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="15sp"
-                android:onClick="inputsub"
                 android:text="-"
-                style="?android:attr/borderlessButtonStyle"
 
-                />
+                android:textSize="15sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -473,7 +402,6 @@
                 android:text="("
                 android:textSize="15sp"
                 style="?android:attr/borderlessButtonStyle"
-                android:onClick="inputbracketopen"
                 android:textAlignment="center"
                 android:layout_weight="3"/>
 
@@ -484,7 +412,6 @@
                 android:paddingLeft="30dp"
                 android:layout_height="wrap_content"
                 android:text=")"
-                android:onClick="inputbracketclose"
                 android:layout_weight="3"
                 style="?android:attr/borderlessButtonStyle"
                 android:textAlignment="center" />
@@ -495,7 +422,6 @@
                 android:layout_height="wrap_content"
                 android:text="^"
                 android:textSize="15sp"
-                android:onClick="inputexpo"
                 android:paddingLeft="40dp"
                 style="?android:attr/borderlessButtonStyle"
                 android:textAlignment="center"
@@ -506,7 +432,6 @@
                 android:text="Delete"
                 android:id="@+id/delete"
                 android:textSize="25sp"
-                android:onClick="del"
                 android:layout_weight="1"
                 style="?android:attr/borderlessButtonStyle"
 
@@ -515,4 +440,4 @@
 
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</FrameLayout>
