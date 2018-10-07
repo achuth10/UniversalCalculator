@@ -213,7 +213,7 @@ public class SimpleFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (input.length() >= 1) {
-                    if(input.charAt(input.length())=='.')
+                    if(input.charAt(input.length()-1)=='.')
                         dec=false;
                     input = input.substring(0, input.length() - 1);
                     onscreen=input;

@@ -19,7 +19,7 @@ import java.util.Stack;
 public class ScientificFragment extends Fragment {
     String input = " ",onscreen=" ";
     boolean lastnum ,dec;
-    TextView T,text;
+    TextView T;
     Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,ba,bs,bm,bd,bbrackopen,bbrackclose,buttonexpo,buttoneval,buttondecimal;
     Button sin,cos,tan,sinh,cosh,tanh,floor,ceil,log10,ln,fact,sqrt;
 
@@ -35,7 +35,6 @@ public class ScientificFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_scientific, container, false);
         Button delete= v.findViewById(R.id.delete);
         T = v.findViewById(R.id.input);
-        text= v.findViewById(R.id.input);
         lastnum=dec=false;
         b1= v.findViewById(R.id.button1);
         b2= v.findViewById(R.id.button2);
@@ -56,8 +55,6 @@ public class ScientificFragment extends Fragment {
         buttoneval= v.findViewById(R.id.buttonequal);
         buttonexpo= v.findViewById(R.id.buttonexpo);
         buttondecimal= v.findViewById(R.id.buttondecimal);
-
-
         sin= v.findViewById(R.id.buttonsin);
         sinh= v.findViewById(R.id.buttonsinh);
         cos= v.findViewById(R.id.buttoncos);
@@ -227,7 +224,7 @@ public class ScientificFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (input.length() >= 1) {
-                    if(input.charAt(input.length())=='.')
+                    if(input.charAt(input.length()-1)=='.')
                         dec=false;
                     input = input.substring(0, input.length() - 1);
                     onscreen=input;
@@ -294,7 +291,7 @@ public class ScientificFragment extends Fragment {
                     {
                         input=" ";
                         onscreen=" ";
-                        text.setText("Error");
+                        T.setText("Error");
                         break;
                     }
                     if(onscreen.charAt(m)=='l'&&(onscreen.charAt(m+1)=='n')&&(onscreen.charAt(m+2)=='('))
@@ -311,7 +308,7 @@ public class ScientificFragment extends Fragment {
                         {
                             input=" ";
                             onscreen=" ";
-                            text.setText("Error");
+                            T.setText("Error");
                             break;
                         }
                         rest=Math.log(res);
@@ -444,7 +441,7 @@ public class ScientificFragment extends Fragment {
                         {
                             input=" ";
                             onscreen=" ";
-                            text.setText("Error");
+                            T.setText("Error");
                             break;
                         }
                         double rest=Math.floor(res);
@@ -466,7 +463,7 @@ public class ScientificFragment extends Fragment {
                         {
                             input=" ";
                             onscreen=" ";
-                            text.setText("Error");
+                            T.setText("Error");
                             break;
                         }
                         double rest=Math.ceil(res);
@@ -488,7 +485,7 @@ public class ScientificFragment extends Fragment {
                         {
                             input=" ";
                             onscreen=" ";
-                            text.setText("Error");
+                            T.setText("Error");
                             break;
                         }
                         double rest=Math.log10(res);
@@ -508,7 +505,7 @@ public class ScientificFragment extends Fragment {
                     }
                     else if(onscreen.charAt(m)==')' && onscreen.charAt(m-1)!='(' )
                     {
-                        text.setText("Error");
+                        T.setText("Error");
                         break;
                     }
                 }
@@ -588,7 +585,7 @@ public class ScientificFragment extends Fragment {
                 double tempnum=0;
                 for(int i=1;i<input.length();i++) {
 
-                    if (input.charAt(i) == '!') {
+                    if (input.charAt(i) == '!' && check(input.charAt(i-1))) {
                         while (check(input.charAt(i - 1)) && i != 0) {
 
                             tempp.append(input.charAt(i - 1));
@@ -602,6 +599,8 @@ public class ScientificFragment extends Fragment {
                         onscreen=input;
                         break;
                     }
+                    else
+                        T.setText("Error");
                 }
                 display();
             }

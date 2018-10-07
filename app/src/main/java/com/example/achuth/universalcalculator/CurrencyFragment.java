@@ -23,9 +23,6 @@
  import android.widget.Spinner;
  import android.widget.TextView;
  import android.widget.AdapterView.OnItemSelectedListener;
-
- import com.facebook.shimmer.ShimmerFrameLayout;
-
  import org.json.JSONException;
  import org.json.JSONObject;
  import org.json.JSONTokener;
@@ -200,6 +197,7 @@ public class CurrencyFragment extends Fragment implements OnItemSelectedListener
              try {
                  JSONObject object=(JSONObject) new JSONTokener(response).nextValue();
                  result= object.getString("rates");
+                 //Log.i("Rates is ",result);
                  dateholder=object.getString("date");
                 // Log.i("HERE",dateholder);
 
