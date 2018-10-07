@@ -13,15 +13,16 @@
 
         <TextView
             style="@style/HeaderText"
+            android:textSize="20dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="70dp"
             android:layout_marginVertical="5dp"
-            android:paddingBottom="10dp"
+            android:paddingBottom="5dp"
             android:text="Scientifc Calculator" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="196dp">
+            android:layout_height="180dp">
 
             <TextView
                 android:id="@+id/input"
@@ -432,7 +433,7 @@
                 android:layout_height="wrap_content"
                 android:text="Delete"
                 android:id="@+id/delete"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:layout_weight="1"
                 style="?android:attr/borderlessButtonStyle"
 

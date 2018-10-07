@@ -39,7 +39,7 @@
             android:id="@+id/switchcur"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="150dp"
+            android:layout_marginLeft="120dp"
             android:background="@drawable/switcher"
             android:textSize="20sp" />
         <TextView
@@ -83,13 +83,14 @@
                 android:layout_centerHorizontal="true"
                 android:visibility="gone" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/result"
-                android:textSize="40sp"
-                android:layout_centerHorizontal="true"
-                />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/result"
+                    android:textSize="40sp"
+                    android:layout_centerHorizontal="true"
+                    />
+
         </RelativeLayout>
 
     </LinearLayout>

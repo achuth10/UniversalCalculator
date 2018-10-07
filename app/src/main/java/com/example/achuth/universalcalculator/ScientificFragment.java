@@ -17,8 +17,8 @@ import java.util.Stack;
  * A simple {@link Fragment} subclass.
  */
 public class ScientificFragment extends Fragment {
-    String input = " ",display=" ",onscreen=" ";
-    boolean lastnum = false;
+    String input = " ",onscreen=" ";
+    boolean lastnum ,dec;
     TextView T,text;
     Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,ba,bs,bm,bd,bbrackopen,bbrackclose,buttonexpo,buttoneval,buttondecimal;
     Button sin,cos,tan,sinh,cosh,tanh,floor,ceil,log10,ln,fact,sqrt;
@@ -36,6 +36,7 @@ public class ScientificFragment extends Fragment {
         Button delete= v.findViewById(R.id.delete);
         T = v.findViewById(R.id.input);
         text= v.findViewById(R.id.input);
+        lastnum=dec=false;
         b1= v.findViewById(R.id.button1);
         b2= v.findViewById(R.id.button2);
         b3= v.findViewById(R.id.button3);
@@ -78,7 +79,7 @@ public class ScientificFragment extends Fragment {
                 input=" ";
                 onscreen=input;
                 display();
-                lastnum=false;
+                dec=lastnum=false;
                 return true;
             }
         });
@@ -213,16 +214,21 @@ public class ScientificFragment extends Fragment {
         buttondecimal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onscreen += ".";
-                lastnum = false;
-                input=onscreen;
-                display();
+                if(!dec) {
+                    onscreen += ".";
+                    lastnum = false;
+                    input = onscreen;
+                    display();
+                    dec=true;
+                }
             }
         });
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (input.length() >= 1) {
+                    if(input.charAt(input.length())=='.')
+                        dec=false;
                     input = input.substring(0, input.length() - 1);
                     onscreen=input;
                     display();

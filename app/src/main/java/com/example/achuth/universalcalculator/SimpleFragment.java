@@ -17,8 +17,8 @@ import java.util.Stack;
  * A simple {@link Fragment} subclass.
  */
 public class SimpleFragment extends Fragment {
-    String input = " ",display=" ",onscreen=" ";
-    boolean lastnum = false;
+    String input = " ",onscreen=" ";
+    boolean lastnum,dec;
     TextView T;
     TextView text;
     Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,ba,bs,bm,bd,bbrackopen,bbrackclose,buttonexpo,buttoneval,buttondecimal;
@@ -35,7 +35,7 @@ public class SimpleFragment extends Fragment {
         Button delete= v.findViewById(R.id.delete);
         T = v.findViewById(R.id.input);
         text= v.findViewById(R.id.input);
-
+        dec=lastnum=false;
         b1= v.findViewById(R.id.button1);
         b2= v.findViewById(R.id.button2);
         b3= v.findViewById(R.id.button3);
@@ -64,7 +64,7 @@ public class SimpleFragment extends Fragment {
                 input=" ";
                 onscreen=input;
                 display();
-                lastnum=false;
+                lastnum=false;dec=false;
                 return true;
             }
         });
@@ -199,16 +199,22 @@ public class SimpleFragment extends Fragment {
         buttondecimal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                input += ".";
-                lastnum=false;
-                onscreen=input;
-                display();
+                if(!dec) {
+                    onscreen += ".";
+                    lastnum = false;
+                    input = onscreen;
+                    display();
+                    dec=true;
+                }
+
             }
         });
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (input.length() >= 1) {
+                    if(input.charAt(input.length())=='.')
+                        dec=false;
                     input = input.substring(0, input.length() - 1);
                     onscreen=input;
                     display();

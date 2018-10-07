@@ -23,6 +23,9 @@
  import android.widget.Spinner;
  import android.widget.TextView;
  import android.widget.AdapterView.OnItemSelectedListener;
+
+ import com.facebook.shimmer.ShimmerFrameLayout;
+
  import org.json.JSONException;
  import org.json.JSONObject;
  import org.json.JSONTokener;
@@ -44,8 +47,6 @@ public class CurrencyFragment extends Fragment implements OnItemSelectedListener
     public CurrencyFragment() {
         // Required empty public constructor
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -104,13 +105,28 @@ public class CurrencyFragment extends Fragment implements OnItemSelectedListener
                 if (conv.equals(conv1)) {
                     responseView.setText("Error , Same currency chosen");
                 }
+                if(edit1.getText().length()==0)
+                {
+                    responseView.setText("No amount entered");
+                }
                 else {
-                    InputMethodManager inputManager = (InputMethodManager)
-                            getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
 
-                    inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
-                            InputMethodManager.HIDE_NOT_ALWAYS);
-                    c.execute();
+                    if (edit1.getText().length() != 0) {
+                        if (conv.equals(conv1)) {
+                            responseView.setText("Error , Same currency chosen");
+                        }
+                        else
+                        c.execute();
+                    }
+                        else {
+                        InputMethodManager inputManager = (InputMethodManager)
+                                getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+
+                        inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
+                                InputMethodManager.HIDE_NOT_ALWAYS);
+
+                        c.execute();
+                    }
                 }
             }
         });
@@ -179,6 +195,7 @@ public class CurrencyFragment extends Fragment implements OnItemSelectedListener
                  response = "THERE WAS AN ERROR";
              }
              progressBar.setVisibility(View.GONE);
+
              Log.i("INFO", response);
              try {
                  JSONObject object=(JSONObject) new JSONTokener(response).nextValue();
