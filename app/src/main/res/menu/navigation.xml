@@ -3,17 +3,17 @@
 
     <item
         android:id="@+id/simple"
-        android:icon="@drawable/simple1"
+        android:icon="@drawable/simple"
         android:title="Simple" />
 
     <item
         android:id="@+id/Scientific"
-        android:icon="@drawable/scient"
+        android:icon="@drawable/scientififc"
         android:title="Scientific" />
 
     <item
         android:id="@+id/currency"
-        android:icon="@drawable/currency"
+        android:icon="@drawable/money"
         android:title="currency" />
 
 </menu>

@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         simple =new SimpleFragment();
         scientific =new ScientificFragment();
         currency =new CurrencyFragment();
-
+        setfragement(simple);
         bm.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -71,7 +71,9 @@ public class MainActivity extends AppCompatActivity {
     {
         if(item.getItemId()==R.id.settings)
         {
+            Intent i =new Intent(this,Settings.class);
             Toast.makeText(this,"Settings",Toast.LENGTH_SHORT).show();
+            startActivity(i);
         }
         else if(item.getItemId()==R.id.help)
         {
@@ -86,45 +88,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
-//    public void gottosimple(View view) {
-//        Intent i = new Intent(this, Simple.class);
-//        /// overridePendingTransition(R.anim.animation_enter, R.anim.animation_leave);
-//        startActivity(i);
-//        //finish();
-//
-//    }
-//    public void gottosimple() {
-//        Intent i = new Intent(this, Simple.class);
-//        startActivity(i);
-//
-//    }
-
-   /* public void gottoscientific(View view) {
-        Intent i = new Intent(this, Scientific.class);
-        startActivity(i);
-
-    }
-    public void gottoscientific() {
-        Intent i = new Intent(this, Scientific.class);
-        startActivity(i);
-
-    }
-
-    public void gotocurrency(View view) {
-        Intent i = new Intent(this, Currency.class);
-        startActivity(i);
-    }
-
-    public void gotocurrency() {
-        Intent i = new Intent(this, Currency.class);
-        startActivity(i);
-    }
-
-    public void unitconv(View view) {
-        Intent i = new Intent(this, Unitconv.class);
-        startActivity(i);
-    }*/
-
 
 
 

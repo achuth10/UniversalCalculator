@@ -1,5 +1,6 @@
  package com.example.achuth.universalcalculator;
 
+ import android.content.Context;
  import android.os.AsyncTask;
  import android.support.v4.app.Fragment;
  import java.io.BufferedReader;
@@ -13,6 +14,7 @@
  import android.view.LayoutInflater;
  import android.view.View;
  import android.view.ViewGroup;
+ import android.view.inputmethod.InputMethodManager;
  import android.widget.AdapterView;
  import android.widget.ArrayAdapter;
  import android.widget.Button;
@@ -103,6 +105,11 @@ public class CurrencyFragment extends Fragment implements OnItemSelectedListener
                     responseView.setText("Error , Same currency chosen");
                 }
                 else {
+                    InputMethodManager inputManager = (InputMethodManager)
+                            getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+
+                    inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
                     c.execute();
                 }
             }
@@ -183,6 +190,7 @@ public class CurrencyFragment extends Fragment implements OnItemSelectedListener
              } catch (JSONException e) {
                  e.printStackTrace();
              }
+             date.setVisibility(View.VISIBLE);
              date.setText("Rates are current as of " + dateholder);
              StringBuilder s=new StringBuilder();
              for(int i=7;i<result.length();i++)
