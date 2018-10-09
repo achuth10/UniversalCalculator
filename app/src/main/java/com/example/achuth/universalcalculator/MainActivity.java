@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -58,10 +59,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setfragement(Fragment frag) {
-        FragmentTransaction fragmentTransaction =getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.mainframe,frag);
-        fragmentTransaction.commit();
+    FragmentTransaction fragmentTransaction =getSupportFragmentManager().beginTransaction();
+    fragmentTransaction.replace(R.id.mainframe,frag);
+    fragmentTransaction.commit();
 
+        /*FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
+        //frag newCustomFragment = frag.newInstance();
+        transaction.replace(R.id.mainframe, frag );
+        transaction.addToBackStack(null);
+        transaction.commit();*/
     }
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.help,menu);
@@ -69,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public boolean onOptionsItemSelected(MenuItem item)
     {
+
         if(item.getItemId()==R.id.settings)
         {
             Intent i =new Intent(this,Settings.class);

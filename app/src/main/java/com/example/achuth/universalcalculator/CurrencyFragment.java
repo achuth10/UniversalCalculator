@@ -23,6 +23,8 @@
  import android.widget.Spinner;
  import android.widget.TextView;
  import android.widget.AdapterView.OnItemSelectedListener;
+ import android.widget.Toast;
+
  import org.json.JSONException;
  import org.json.JSONObject;
  import org.json.JSONTokener;
@@ -38,9 +40,11 @@ public class CurrencyFragment extends Fragment implements OnItemSelectedListener
     TextView responseView,date;
     String conv="";
     String conv1="";
+    String conv2=" ",conv3=" ";
     Spinner spin,spin1;
      static final String API_URL = " https://frankfurter.app/latest";
     List<String> currval = new ArrayList<String>();
+     List<String> currvalname = new ArrayList<String>();
     public CurrencyFragment() {
         // Required empty public constructor
     }
@@ -89,11 +93,42 @@ public class CurrencyFragment extends Fragment implements OnItemSelectedListener
         currval.add("TRY");
         currval.add("USD");
         currval.add("ZAR");
-
-        ArrayAdapter<CharSequence> currAdapter = new ArrayAdapter (getActivity().getBaseContext(), android.R.layout.simple_spinner_item, currval);
+        currvalname.add("AUD Australian dollar ");
+        currvalname.add("BGN Bulgarian lev");
+        currvalname.add("CAD Canadian dollar");
+        currvalname.add("CHF Swiss franc");
+        currvalname.add("CNY Chinese yuan renminbi");
+        currvalname.add("CZK Czech koruna");
+        currvalname.add("DKK Danish krone");
+        currvalname.add("GBP Pound sterling");
+        currvalname.add("HKD Hong Kong dollar");
+        currvalname.add("HRK Croatian kuna");
+        currvalname.add("HUF Hungarian forint");
+        currvalname.add("IDR Indonesian rupiah");
+        currvalname.add("ILS Israeli shekel");
+        currvalname.add("INR Indian rupee");
+        currvalname.add("ISK Icelandic krona ");
+        currvalname.add("JPY Japanese yen");
+        currvalname.add("KRW South Korean won");
+        currvalname.add("MXN Mexican peso");
+        currvalname.add("MYR Malaysian ringgit");
+        currvalname.add("NOK Norwegian krone");
+        currvalname.add("NZD New Zealand dollar");
+        currvalname.add("PHP Philippine piso");
+        currvalname.add("PLN Polish zloty");
+        currvalname.add("RON Romanian leu");
+        currvalname.add("RUB Russian rouble");
+        currvalname.add("SEK Swedish krona");
+        currvalname.add("SGD Singapore dollar");
+        currvalname.add("THB Thai baht");
+        currvalname.add("TRY Turkish lira");
+        currvalname.add("USD US dollar");
+        currvalname.add("ZAR South African rand");
+        ArrayAdapter<CharSequence> currAdapter = new ArrayAdapter (getActivity().getBaseContext(), android.R.layout.simple_spinner_item, currvalname);
         currAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin.setAdapter(currAdapter);
         spin1.setAdapter(currAdapter);
+
         convert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,19 +145,15 @@ public class CurrencyFragment extends Fragment implements OnItemSelectedListener
 
                     if (edit1.getText().length() != 0) {
                         if (conv.equals(conv1)) {
-                            responseView.setText("Error , Same currency chosen");
+                            responseView.setText("Same currency chosen");
+                        } else {
+                            InputMethodManager inputManager = (InputMethodManager)
+                                    getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+
+                            inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
+                                    InputMethodManager.HIDE_NOT_ALWAYS);
+                            c.execute();
                         }
-                        else
-                        c.execute();
-                    }
-                        else {
-                        InputMethodManager inputManager = (InputMethodManager)
-                                getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-
-                        inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
-                                InputMethodManager.HIDE_NOT_ALWAYS);
-
-                        c.execute();
                     }
                 }
             }
@@ -130,8 +161,8 @@ public class CurrencyFragment extends Fragment implements OnItemSelectedListener
         switchcurrency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                spin.setSelection(((ArrayAdapter)spin.getAdapter()).getPosition(conv1));
-                spin1.setSelection(((ArrayAdapter)spin1.getAdapter()).getPosition(conv));
+                spin.setSelection(((ArrayAdapter)spin.getAdapter()).getPosition(conv3));
+                spin1.setSelection(((ArrayAdapter)spin1.getAdapter()).getPosition(conv2));
             }
         });
         // Inflate the layout for this fragment
@@ -143,8 +174,11 @@ public class CurrencyFragment extends Fragment implements OnItemSelectedListener
          String item = parent.getItemAtPosition(position).toString();
          switch (parent.getId())
          {
-             case R.id.spinner1:conv=item;break;
-             case R.id.spinner2:conv1=item;break;
+             case R.id.spinner1:
+                 conv=currval.get(position);
+                 conv2=item;break;
+             case R.id.spinner2:conv1=currval.get(position);
+             conv3=item;break;
          }
      }
 
@@ -176,7 +210,7 @@ public class CurrencyFragment extends Fragment implements OnItemSelectedListener
                          stringBuilder.append(line);
                      }
                      bufferedReader.close();
-                     line = stringBuilder.toString();
+                     /*line = stringBuilder.toString();*/
                      return stringBuilder.toString();
                  } finally {
                      urlConnection.disconnect();
@@ -190,32 +224,33 @@ public class CurrencyFragment extends Fragment implements OnItemSelectedListener
          protected void onPostExecute(String response) {
              if (response == null) {
                  response = "THERE WAS AN ERROR";
-             }
-             progressBar.setVisibility(View.GONE);
+                 Log.i("INFO", response);
+                 Toast.makeText(getActivity(), "Check your internet connection!", Toast.LENGTH_SHORT).show();
+             } else {
+                 progressBar.setVisibility(View.GONE);
+                 Log.i("INFO", response);
+                 try {
+                     JSONObject object = (JSONObject) new JSONTokener(response).nextValue();
+                     result = object.getString("rates");
+                     //Log.i("Rates is ",result);
+                     dateholder = object.getString("date");
+                     // Log.i("HERE",dateholder);
 
-             Log.i("INFO", response);
-             try {
-                 JSONObject object=(JSONObject) new JSONTokener(response).nextValue();
-                 result= object.getString("rates");
-                 //Log.i("Rates is ",result);
-                 dateholder=object.getString("date");
-                // Log.i("HERE",dateholder);
 
-
-             } catch (JSONException e) {
-                 e.printStackTrace();
+                 } catch (JSONException e) {
+                     e.printStackTrace();
+                 }
+                 date.setVisibility(View.VISIBLE);
+                 date.setText("Rates are current as of " + dateholder);
+                 StringBuilder s = new StringBuilder();
+                 for (int i = 7; i < result.length(); i++) {
+                     if (result.charAt(i) != '}')
+                         s.append(result.charAt(i));
+                     if (result.charAt(i) == '}')
+                         break;
+                 }
+                 responseView.setText( conv + " " +amt + " = " + conv1 + " " + s.toString());
              }
-             date.setVisibility(View.VISIBLE);
-             date.setText("Rates are current as of " + dateholder);
-             StringBuilder s=new StringBuilder();
-             for(int i=7;i<result.length();i++)
-             {
-                 if(result.charAt(i)!='}')
-                     s.append(result.charAt(i));
-                 if(result.charAt(i)=='}')
-                     break;
-             }
-             responseView.setText(conv1+" : " +s.toString());
          }
      }
 
