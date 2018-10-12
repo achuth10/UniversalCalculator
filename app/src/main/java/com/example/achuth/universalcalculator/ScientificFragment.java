@@ -257,6 +257,12 @@ public class ScientificFragment extends Fragment {
                                 break;
                             }
                         }
+                        if(input.charAt(i)=='('&&!W.isOperand(input.charAt(i-1)))
+                        {
+                            String s=input.substring(i,input.length());
+                            String b =input.substring(0,i);
+                            input= b+'*'+s;
+                        }
                     }
                     if (check) {
                         double result = W.driver(input);

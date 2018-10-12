@@ -239,12 +239,20 @@ public class SimpleFragment extends Fragment {
                     boolean check = true;
                     working W = new working();
                     for (int i = 1; i < input.length(); i++) {
+                        Log.i("inside for and i = ", " " + i);
+
                         if (W.isOperand(input.charAt(i))) {
                             if (!check(input.charAt(i - 1))) {
                                 T.setText("Error");
                                 check = false;
                                 break;
                             }
+                        }
+                        if(input.charAt(i)=='('&&!W.isOperand(input.charAt(i-1)))
+                        {
+                            String s=input.substring(i,input.length());
+                            String b =input.substring(0,i);
+                            input= b+'*'+s;
                         }
                     }
                     if (check) {

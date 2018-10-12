@@ -37,10 +37,10 @@
 
         <Button
             android:id="@+id/switchcur"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="150dp"
-            android:background="@drawable/switcher"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="135dp"
+            android:background="@drawable/vertical"
             android:textSize="20sp" />
         <TextView
             android:layout_width="match_parent"
