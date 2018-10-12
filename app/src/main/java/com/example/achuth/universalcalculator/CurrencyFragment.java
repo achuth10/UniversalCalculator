@@ -278,7 +278,7 @@ public class CurrencyFragment extends Fragment implements OnItemSelectedListener
 
          @Override
          protected String doInBackground(Void... voids) {
-            String urll="your api here";
+            String urll="YOUR API HERE";
              try {
                  URL url = new URL(urll);
                  HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
