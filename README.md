@@ -12,3 +12,5 @@ Android terms used-
 3.Async Task
 
 4.Bottom Navigation View
+
+The apk version can be downloaded from here (best viewed on a 5.5 inch device) -https://drive.google.com/open?id=1H4PzgHlNpyy8WcEfzbIaRd_beCRnIrLE
