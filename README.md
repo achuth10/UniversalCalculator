@@ -3,7 +3,7 @@ The Universal calculator app was designed to help you with all your calculating 
 
 The most recent code changes will be available on the test branch.
 
-Android terms used-
+Android features used-
 
 1.JSON parsing
 
